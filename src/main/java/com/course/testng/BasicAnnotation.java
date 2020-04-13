@@ -6,7 +6,7 @@ public class BasicAnnotation {
 	
 	@Test
 	public void testCase1(){
-		System.out.println("ÕâÊÇ²âÊÔÓÃÀı1¡£");
+		System.out.println("ç¬¬ä¸€ä¸ªæµ‹è¯•ç”¨ä¾‹");
 	}
 
 }
