@@ -1,0 +1,16 @@
+<?xml version ="1.0" encoding="UTF-8" ?>
+<suite name="mqq">
+	<test name="login">
+			<classes>
+				<class name ="com.course.testng.SuiteConfig"/>
+				<class name ="com.course.testng.LoginTest"/>
+			</classes>	
+	</test>
+	<test name="pay">
+			<classes>
+				<class name ="com.course.testng.SuiteConfig"/>
+				<class name ="com.course.testng.PayTest"/>
+			</classes>
+	</test>
+
+</suite>
