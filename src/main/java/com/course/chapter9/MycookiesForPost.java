@@ -22,7 +22,7 @@ import org.testng.annotations.Test;
 public class MycookiesForPost {
 	private String url;
 	private ResourceBundle bundle;
-	//ÓÃÀ´´æ´¢cookiesĞÅÏ¢µÄ±äÁ¿
+	//ç”¨æ¥å­˜å‚¨cookiesä¿¡æ¯çš„å˜é‡
 	private CookieStore store;
 		
 	@BeforeTest
@@ -51,32 +51,32 @@ public class MycookiesForPost {
 	public void testPostWithCookies() throws ClientProtocolException, IOException{
 		String uri = bundle.getString("post.with.cookies");
 		String testUrl = this.url+uri;		
-		//ÉùÃ÷Ò»¸öclient¶ÔÏó£¬ÓÃÀ´Ö´ĞĞ·½·¨
-		DefaultHttpClient client = new DefaultHttpClient();
-		//ÉùÃ÷Ò»¸ö·½·¨£¬Õâ¸ö·½·¨ÊÇpost·½·¨
-		HttpPost post = new HttpPost(testUrl);
-		//Ìí¼Ó²ÎÊı
+		//å£°æ˜ä¸€ä¸ªclientå¯¹è±¡ï¼Œç”¨æ¥æ‰§è¡Œæ–¹æ³•
+        DefaultHttpClient client = new DefaultHttpClient();
+        //å£°æ˜ä¸€ä¸ªæ–¹æ³•ï¼Œè¿™ä¸ªæ–¹æ³•æ˜¯postæ–¹æ³•
+        HttpPost post = new HttpPost(testUrl);
+        //æ·»åŠ å‚æ•°
 		JSONObject param = new JSONObject();
 		param.put("name", "sunnysnow");
 		param.put("age", "30");		
-		//ÉèÖÃÇëÇóĞÅÏ¢ÉèÖÃheader
+		//è®¾ç½®è¯·æ±‚ä¿¡æ¯è®¾ç½®header
 		post.setHeader("content-type","application/json");
-		//½«²ÎÊıĞÅÏ¢Ìí¼Óµ½·½·¨ÖĞ
+		 //å°†å‚æ•°ä¿¡æ¯æ·»åŠ åˆ°æ–¹æ³•ä¸­
 		StringEntity entity = new StringEntity(param.toString(),"utf-8");
 		post.setEntity(entity);
-		//ÉùÃ÷Ò»¸ö¶ÔÏó£¬½øĞĞ´æ´¢ÏìÓ¦½á¹û
+		//å£°æ˜ä¸€ä¸ªå¯¹è±¡ï¼Œè¿›è¡Œå­˜å‚¨å“åº”ç»“æœ
 		String result;
-		//ÉèÖÃcookiesĞÅÏ¢
+		 //è®¾ç½®cookiesä¿¡æ¯
 		client.setCookieStore(store);
-		//Ö´ĞĞpost·½·¨
+		 //æ‰§è¡Œpostæ–¹æ³•
 		HttpResponse response = client.execute(post);
-		//»ñÈ¡ÏìÓ¦½á¹û
+		//è·å–å“åº”ç»“æœ
 		result = EntityUtils.toString(response.getEntity(),"Utf8");
 		System.out.println(result);
-		//´¦Àí½á¹û£¬ÅĞ¶Ï·µ»Ø½á¹ûÊÇ·ñ·ûºÏÔ¤ÆÚ
-		//½«·µ»ØµÄÏìÓ¦½á¹û×Ö·û´®×ª»¯³ÉÎªjson¶ÔÏó
+		//å¤„ç†ç»“æœï¼Œåˆ¤æ–­è¿”å›ç»“æœæ˜¯å¦ç¬¦åˆé¢„æœŸ
+        //å°†è¿”å›çš„å“åº”ç»“æœå­—ç¬¦ä¸²è½¬åŒ–æˆä¸ºjsonå¯¹è±¡
 		JSONObject resultjson = new JSONObject(result);
-		//»ñÈ¡µ½½á¹ûÖµ
+		//è·å–åˆ°ç»“æœ
 		String success = (String) resultjson.get("sunnysnow");
 		String status = (String) resultjson.get("status");
 		Assert.assertEquals(success, success);
