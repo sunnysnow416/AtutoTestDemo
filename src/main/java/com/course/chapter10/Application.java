@@ -1,9 +1,9 @@
 package com.course.chapter10;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
+//第一种写法
 @SpringBootApplication
 @ComponentScan()  //扫描那个包下的类，托管给我
 public class Application {
