@@ -75,7 +75,8 @@
   		<artifactId>lombok</artifactId>
   		<version>1.16.14</version>
   	</dependency>
-  	 	
+  
+  <!-- 
   	 <dependency>
   	 	<groupId>mysql</groupId>
   	 	<artifactId>mysql-connector-java</artifactId>
@@ -108,5 +109,6 @@
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
         </dependency>
+      -->	 	
   </dependencies>
 </project>
